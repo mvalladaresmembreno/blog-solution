@@ -3,7 +3,7 @@ Ejercicio Tecnico para aplicar a ITELLIGENT
 
 Se debe construir una plataforma de publicación de artículos donde los usuarios puedan:
 Registrarse y autenticarse.
-Crear, editar y eliminar artículos.
+Crear, editar y eliminar artículos
 Comentar en artículos de otros usuarios.
 Consultar artículos con paginación y filtros.
 
