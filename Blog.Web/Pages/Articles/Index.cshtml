@@ -1,0 +1,49 @@
+@page
+@model Blog.Web.Pages.Articles.IndexModel
+
+<div class="container mt-4">
+    <h1>Gestión de artículos</h1>
+
+    <div class="text-end mb-3">
+        <a href="/Articles/Nuevo" class="btn btn-primary">Nuevo artículo</a>
+    </div>
+
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+        <tr>
+            <th>Autor</th>
+            <th>Título</th>
+            <th>Fecha de publicación</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var articulo in Model.Articulos)
+        {
+            <tr>
+                <td>@articulo.Autor</td>
+                <td>@articulo.Titulo</td>
+                <td>@articulo.FechaPublicacion.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>
+                    <a href="/Articles/Detalle?id=@articulo.Id" class="btn btn-sm btn-info">Ver</a>
+                    <a href="/Articles/Editar?id=@articulo.Id" class="btn btn-sm btn-warning">Editar</a>
+                    <button class="btn btn-sm btn-danger" onclick="mostrarConfirmacionEliminar(@articulo.Id, '@articulo.Titulo')">Eliminar</button>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal eliminar... igual que antes -->
+
+@section Scripts {
+    <script>
+        function mostrarConfirmacionEliminar(id, titulo) {
+            document.getElementById('tituloArticulo').textContent = titulo;
+            document.getElementById('btnEliminarConfirmado').href = '/Articles/Eliminar?id=' + id;
+            var modal = new bootstrap.Modal(document.getElementById('confirmarEliminarModal'));
+            modal.show();
+        }
+    </script>
+}

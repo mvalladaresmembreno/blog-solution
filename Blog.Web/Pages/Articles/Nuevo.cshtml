@@ -1,0 +1,42 @@
+@page
+@model Blog.Web.Pages.Articles.NuevoModel
+@{
+    ViewData["Title"] = "Nuevo Artículo";
+}
+
+<div class="container mt-5">
+    <h2>Crear nuevo artículo</h2>
+
+    <form method="post">
+        <div class="mb-3">
+            <label asp-for="Articulo.Titulo" class="form-label"></label>
+            <input asp-for="Articulo.Titulo" class="form-control" />
+            <span asp-validation-for="Articulo.Titulo" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Articulo.Autor" class="form-label"></label>
+            <input asp-for="Articulo.Autor" class="form-control" />
+            <span asp-validation-for="Articulo.Autor" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Articulo.Contenido" class="form-label"></label>
+            <textarea asp-for="Articulo.Contenido" class="form-control" rows="5"></textarea>
+            <span asp-validation-for="Articulo.Contenido" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Articulo.FechaPublicacion" class="form-label"></label>
+            <input asp-for="Articulo.FechaPublicacion" class="form-control" type="datetime-local" />
+            <span asp-validation-for="Articulo.FechaPublicacion" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a asp-page="./Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
