@@ -1,5 +1,4 @@
 # blog-solution
-Ejercicio Tecnico para aplicar a ITELLIGENT
 
 Se debe construir una plataforma de publicación de artículos donde los usuarios puedan:
 Registrarse y autenticarse.
